@@ -5,7 +5,7 @@ This is for Project 3, doing the Data engineering side. Combining IMBD databases
   - Get the TSV files from IMBD
       - Use this URL to get the unzipped TSV files (The files are too big to save on to GitHub.)
           - https://datasets.imdbws.com/
-          - ![TSV's](https://github.com/user-attachments/assets/e82d2dfd-2b00-4d02-b2c6-880bb1e08336)
+           ![TSV's](https://github.com/user-attachments/assets/e82d2dfd-2b00-4d02-b2c6-880bb1e08336)
           - using IMDB.IPYNB read in the TSV files
   - Convert TSV files into CSV files in Pandas
   - Clean up the data 
