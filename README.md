@@ -15,6 +15,7 @@ This is for Project 3, doing the Data engineering side. Combining IMBD databases
   - Output the data into cleaned CSV files
 # PostGres
   - Use tableschema.SQL to create the tables in PostGres
+    - Table names being title_basics and title_ratings
   - Upload created CSV's into newly created Postgres tables
 # Back to Pandas
   - Get data back from PostGres into the IPYNB using SQLAlchemy and psycopg2
