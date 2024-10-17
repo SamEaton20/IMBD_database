@@ -3,7 +3,7 @@
 # Hunter Becker, Jacob Woolley, Kowsar Abdi, Samantha Eaton
 This is for Project 3, doing the Data engineering side. Combining IMBD databases on ratings and a variety of criteria.
 # Getting the dataset
-  To obtain the dataset, start by accessing the unzipped TSV files from IMDb at the following URL: IMDb Datasets. Due to their large size, these files cannot be saved directly to GitHub. Once you have accessed the files, use the "IMDB.IPYNB" notebook to read in the TSV data.
+  To obtain the dataset, start by accessing the unzipped TSV files from IMDb at the following URL: [IMDb Datasets](https://datasets.imdbws.com/). Due to their large size, these files cannot be saved directly to GitHub. Once you have accessed the files, use the "IMDB.IPYNB" notebook to read in the TSV data.
   ![TSV's](https://github.com/user-attachments/assets/ff78d1b8-8f4f-4fe7-90ad-9dbb0e3c3f9e)
 
 # Pandas
