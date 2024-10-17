@@ -20,5 +20,5 @@ This is for Project 3, doing the Data engineering side. Combining IMBD databases
 # Back to Pandas
   - Get data back from PostGres into the IPYNB using SQLAlchemy and psycopg2
   - Merge the tables, basic and ratings, in Pandas
-  - Use tkinter code to create 
+  - Use tkinter code to create a GUI
 Not a commercial project
