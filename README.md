@@ -17,8 +17,13 @@ This is for Project 3, doing the Data engineering side. Combining IMBD databases
   - Use tableschema.SQL to create the tables in PostGres
     - Table names being title_basics and title_ratings
   - Upload created CSV's into newly created Postgres tables
+  - Create an ERD for the tables
+  - 
 # Back to Pandas
   - Get data back from PostGres into the IPYNB using SQLAlchemy and psycopg2
-  - Merge the tables, basic and ratings, in Pandas
+  - Merge the tables, title_basics and title_ratings, in Pandas
   - Use tkinter code to create a GUI
+
+# Ethical reasoning
+This project is being used, purely, for educational purposes.
 Not a commercial project
