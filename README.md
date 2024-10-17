@@ -10,7 +10,8 @@ This is for Project 3, doing the Data engineering side. Combining IMBD databases
           - using IMDB.IPYNB read in the TSV files
 # Pandas
   - Convert TSV files into CSV files in Pandas
-  - Clean up the data 
+  - Clean up the data
+    - Went from over a million entries to around 200,000 entries
   - Output the data into cleaned CSV files
 # PostGres
   - Use tableschema.SQL to create the tables in PostGres
