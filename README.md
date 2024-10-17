@@ -18,3 +18,7 @@ This is for Project 3, doing the Data engineering side. Combining IMBD databases
 # Ethical reasoning
 This project is being used, purely, for educational purposes.
 Not a commercial project
+
+# References
+- ChatGPT
+- Tkinter: https://docs.python.org/3/library/tk.html
