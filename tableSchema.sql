@@ -1,6 +1,5 @@
 CREATE TABLE title_basics (
     tconst VARCHAR(20) PRIMARY KEY,
-    titleType VARCHAR(50),
     primaryTitle VARCHAR(500),    
     startYear INTEGER,
     runtimeMinutes INTEGER, 
@@ -29,8 +28,7 @@ CREATE TABLE title_basics (
 	News BOOLEAN, 
 	TalkShow BOOLEAN,
     RealityTV BOOLEAN, 
-	GameShow BOOLEAN, 
-	Adult BOOLEAN 
+	GameShow BOOLEAN
 );
 
 
