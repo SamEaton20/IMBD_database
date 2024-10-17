@@ -4,6 +4,8 @@
 This is for Project 3, doing the Data engineering side. Combining IMBD databases on ratings and a variety of criteria.
 # Getting the dataset
   To obtain the dataset, start by accessing the unzipped TSV files from IMDb at the following URL: IMDb Datasets. Due to their large size, these files cannot be saved directly to GitHub. For a visual reference, you can view an image of the TSV files here. Once you have accessed the files, use the "IMDB.IPYNB" notebook to read in the TSV data.
+  ![TSV's](https://github.com/user-attachments/assets/ff78d1b8-8f4f-4fe7-90ad-9dbb0e3c3f9e)
+
 # Pandas
   Using Pandas, convert the TSV files into CSV format. During this process, clean up the data to reduce the initial dataset from over a million entries to approximately 200,000 entries. Finally, export the cleaned data into new CSV files for further analysis.
 # PostGres
