@@ -311,3 +311,4 @@ root.mainloop()
 #add x and y labels to the dropdowns 
 #change all tk widgets to ttk
 #add a linear regression line 
+#remove un-needed dropdown selections from x/y
