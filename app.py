@@ -276,10 +276,10 @@ def plot():
 
 
 # Dropdowns for selecting columns to plot
-x_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  # Cleaned
+x_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  
 x_dropdown.grid(row=0, column=0)
 
-y_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  # Cleaned
+y_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  
 y_dropdown.grid(row=0, column=1)
 
 # Dropdown for selecting plot type
@@ -302,3 +302,12 @@ toolbar.grid(row=2, column=0, columnspan=4, sticky='nsew')
 
 # Run the GUI
 root.mainloop()
+
+
+#Notes
+#add an error message if no 'match type' selected
+#change plotting titles to vertical 
+#remove line graph or fix it
+#add x and y labels to the dropdowns 
+#change all tk widgets to ttk
+#add a linear regression line 
