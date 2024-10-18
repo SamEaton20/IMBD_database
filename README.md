@@ -17,7 +17,7 @@ This is for Project 3, doing the Data engineering side. Combining IMDb databases
   - ![Screenshot 2024-10-16 193004](https://github.com/user-attachments/assets/ffd747db-46f6-4221-8c16-7471e837e4d0)
 
 # Back to Pandas
-  To retrieve data from PostgreSQL back into the IPYNB, use SQLAlchemy along with psycopg2. Edit the config.py to connect the code to your own Postgres server. Once you have the data, use the notebook to merge the title_basics and title_ratings tables using Pandas. Finally, implement a graphical user interface (GUI) using Tkinter to facilitate user interaction with the merged dataset. To run the shell script, in GitBash or prompt of your choosing, make sure you have a match type selected, otherwise the data will not run. 
+  To retrieve data from PostgreSQL back into the IPYNB, use SQLAlchemy along with psycopg2. Edit the config.py to connect the code to your own Postgres server. Once you have the data, use the notebook to merge the title_basics and title_ratings tables using Pandas. Finally, implement a graphical user interface (GUI) using Tkinter to facilitate user interaction with the merged dataset. To run the tkinter app run the shell script 'python app.py', in GitBash or prompt of your choosing.
 
 # Ethical reasoning
 This project is being used, purely, for educational purposes. As such, this is within the allowed uses of IMDbs non-commercial datasets. All code is original and sources for additional information that was utilized are listed below. 
