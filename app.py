@@ -238,6 +238,7 @@ for i, col in enumerate(genre_columns):
     checkbox.grid(row=i // 10, column=i % 9)
     genre_vars[col] = var
 
+# Create view treeview to display data
 treeview = ttk.Treeview(filter_frame, columns=('title', 'year', 'runtimeminutes', 'averagerating', 'numvotes'), show='headings')
 treeview.grid(row=11, column=0, columnspan=4, sticky='nsew')
 
@@ -282,21 +283,19 @@ def plot():
 
 # Labels for x/y axis and chart type dropdowns
 x_label = ttk.Label(plot_frame, text="X-Axis:")
-x_label.grid(row=0, column=1, sticky='w', pady=(0, 0))  # Moved to row 0
+x_label.grid(row=0, column=1, sticky='w', pady=(0, 0))  
 
 y_label = ttk.Label(plot_frame, text="Y-Axis:")
-y_label.grid(row=0, column=3, sticky='w', pady=(0, 0))  # Moved to row 0
+y_label.grid(row=0, column=3, sticky='w', pady=(0, 0)) 
 
 plot_lable = ttk.Label(plot_frame, text="Chart Type:")
 plot_lable.grid(row=0, column=4, sticky='w', pady=(0,0))
 
 # Dropdowns for x and y axis data
 x_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  
-x_dropdown.grid(row=1, column=1, padx=(0, 5), pady=(0, 0))  # Moved to row 1
-
+x_dropdown.grid(row=1, column=1, padx=(0, 5), pady=(0, 0)) 
 y_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  
-y_dropdown.grid(row=1, column=3, padx=(0, 5), pady=(0, 0))  # Moved to row 1
-
+y_dropdown.grid(row=1, column=3, padx=(0, 5), pady=(0, 0)) 
 
 # Dropdown for selecting plot type
 plot_type = tk.StringVar(value='Scatter')  
@@ -309,12 +308,12 @@ plot_button.grid(row=0, column=5)
 # Move the canvas addition for chart
 fig, ax = plt.subplots(figsize=(14, 8))
 canvas = FigureCanvasTkAgg(fig, master=plot_frame)
-canvas.get_tk_widget().grid(row=2, column=0, columnspan=6, sticky='nsew')  # Changed to row 2
+canvas.get_tk_widget().grid(row=2, column=0, columnspan=6, sticky='nsew') 
 
 # Toolbar for plot navigation and exporting
 toolbar = NavigationToolbar2Tk(canvas, plot_frame, pack_toolbar=False)
 toolbar.update()
-toolbar.grid(row=3, column=0, columnspan=6, sticky='nsew')  # Changed to row 3
+toolbar.grid(row=3, column=0, columnspan=6, sticky='nsew')  
 
 root.mainloop()
 
