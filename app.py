@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+import numpy as np
 
 # File path
 input_file = 'Resources/CSV/imdb_merged.csv'
@@ -97,7 +98,7 @@ filter_frame = ttk.Frame(notebook)
 notebook.add(filter_frame, text='Filter')
 
 # Title filter
-title_filter_label = ttk.Label(filter_frame, text="Title Filter:")
+title_filter_label = ttk.Label(filter_frame, text="Title Filter: (Must select 'Match Type')")
 title_filter_label.grid(row=0, column=0)
 
 title_filter_entry = ttk.Entry(filter_frame)
@@ -264,6 +265,17 @@ def plot():
     if x_col in filtered_df.columns and y_col in filtered_df.columns:
         if plot_type.get() == "Scatter":
             ax.scatter(filtered_df[x_col], filtered_df[y_col])
+
+            # Calculate linear regression
+            x_values = filtered_df[x_col].values
+            y_values = filtered_df[y_col].values
+            
+            # Only proceed if both columns are numerical
+            if np.issubdtype(x_values.dtype, np.number) and np.issubdtype(y_values.dtype, np.number):
+                m, b = np.polyfit(x_values, y_values, 1)  # Linear regression
+                ax.plot(x_values, m*x_values + b, color='red')  # Plot regression line
+
+                
         else:
             ax.plot(filtered_df[x_col], filtered_df[y_col])
         
@@ -321,7 +333,7 @@ root.mainloop()
 #Notes
 #add an error message if no 'match type' selected
 
-#remove line graph or fix it
+
 
 
 #add a linear regression line 
