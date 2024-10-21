@@ -97,59 +97,59 @@ filter_frame = ttk.Frame(notebook)
 notebook.add(filter_frame, text='Filter')
 
 # Title filter
-title_filter_label = tk.Label(filter_frame, text="Title Filter:")
+title_filter_label = ttk.Label(filter_frame, text="Title Filter:")
 title_filter_label.grid(row=0, column=0)
 
-title_filter_entry = tk.Entry(filter_frame)
+title_filter_entry = ttk.Entry(filter_frame)
 title_filter_entry.grid(row=0, column=1)
 
-title_match_type_label = tk.Label(filter_frame, text="Match Type:")
+title_match_type_label = ttk.Label(filter_frame, text="Match Type:")
 title_match_type_label.grid(row=0, column=2)
 
 title_match_type_combobox = ttk.Combobox(filter_frame, values=['Exact Matches', 'Starts With', 'Contains'])
 title_match_type_combobox.grid(row=0, column=3)
 
 # Year filters
-min_year_label = tk.Label(filter_frame, text="Min Year:")
+min_year_label = ttk.Label(filter_frame, text="Min Year:")
 min_year_label.grid(row=1, column=0)
 
-min_year_entry = tk.Entry(filter_frame)
+min_year_entry = ttk.Entry(filter_frame)
 min_year_entry.grid(row=1, column=1)
 
-max_year_label = tk.Label(filter_frame, text="Max Year:")
+max_year_label = ttk.Label(filter_frame, text="Max Year:")
 max_year_label.grid(row=1, column=2)
 
-max_year_entry = tk.Entry(filter_frame)
+max_year_entry = ttk.Entry(filter_frame)
 max_year_entry.grid(row=1, column=3)
 
 # Runtime filters
-min_runtime_label = tk.Label(filter_frame, text="Min Runtime (min):")
+min_runtime_label = ttk.Label(filter_frame, text="Min Runtime (min):")
 min_runtime_label.grid(row=2, column=0)
 
-min_runtime_entry = tk.Entry(filter_frame)
+min_runtime_entry = ttk.Entry(filter_frame)
 min_runtime_entry.grid(row=2, column=1)
 
-max_runtime_label = tk.Label(filter_frame, text="Max Runtime (min):")
+max_runtime_label = ttk.Label(filter_frame, text="Max Runtime (min):")
 max_runtime_label.grid(row=2, column=2)
 
-max_runtime_entry = tk.Entry(filter_frame)
+max_runtime_entry = ttk.Entry(filter_frame)
 max_runtime_entry.grid(row=2, column=3)
 
 # Rating and votes filters
-min_rating_label = tk.Label(filter_frame, text="Min Rating:")
+min_rating_label = ttk.Label(filter_frame, text="Min Rating:")
 min_rating_label.grid(row=3, column=0)
 
-min_rating_entry = tk.Entry(filter_frame)
+min_rating_entry = ttk.Entry(filter_frame)
 min_rating_entry.grid(row=3, column=1)
 
-min_votes_label = tk.Label(filter_frame, text="Min Votes:")
+min_votes_label = ttk.Label(filter_frame, text="Min Votes:")
 min_votes_label.grid(row=3, column=2)
 
-min_votes_entry = tk.Entry(filter_frame)
+min_votes_entry = ttk.Entry(filter_frame)
 min_votes_entry.grid(row=3, column=3)
 
 # Apply Filter button
-apply_filter_button = tk.Button(filter_frame, text="Apply Filter", command=lambda: update_treeview(
+apply_filter_button = ttk.Button(filter_frame, text="Apply Filter", command=lambda: update_treeview(
     title_filter_entry.get(), 
     title_match_type_combobox.get(), 
     sort_column_combobox.get(), 
@@ -167,16 +167,15 @@ apply_filter_button.grid(row=4, columnspan=4, pady=10)
 sort_frame = ttk.Frame(filter_frame)
 sort_frame.grid(row=5, column=0, columnspan=4, pady=10)
 
-sort_label = tk.Label(sort_frame, text="Sort By:")
+sort_label = ttk.Label(sort_frame, text="Sort By:")
 sort_label.grid(row=0, column=0)
 
 sort_column_combobox = ttk.Combobox(sort_frame, values=['title', 'year', 'runtimeminutes', 'averagerating', 'numvotes'])
 sort_column_combobox.grid(row=0, column=1)
 
-# Store the current sort order
-sort_order = tk.StringVar(value='Ascending')  # Default sort order
+sort_order = tk.StringVar(value='Ascending')
 
-ascending_button = tk.Button(sort_frame, text="Sort Ascending", command=lambda: update_treeview(
+ascending_button = ttk.Button(sort_frame, text="Sort Ascending", command=lambda: update_treeview(
     title_filter_entry.get(), 
     title_match_type_combobox.get(), 
     sort_column_combobox.get(), 
@@ -190,7 +189,7 @@ ascending_button = tk.Button(sort_frame, text="Sort Ascending", command=lambda: 
 ))
 ascending_button.grid(row=0, column=2)
 
-descending_button = tk.Button(sort_frame, text="Sort Descending", command=lambda: update_treeview(
+descending_button = ttk.Button(sort_frame, text="Sort Descending", command=lambda: update_treeview(
     title_filter_entry.get(), 
     title_match_type_combobox.get(), 
     sort_column_combobox.get(), 
@@ -205,10 +204,10 @@ descending_button = tk.Button(sort_frame, text="Sort Descending", command=lambda
 descending_button.grid(row=0, column=3)
 
 # Export CSV button
-export_button = tk.Button(filter_frame, text="Export to CSV", command=export_to_csv)
+export_button = ttk.Button(filter_frame, text="Export to CSV", command=export_to_csv)
 export_button.grid(row=6, columnspan=4, pady=10)  
 
-# Create checkboxes for each genre column, arranged in alphabetical order
+# Create checkboxes for each genre column
 genre_frame = ttk.Frame(filter_frame)
 genre_frame.grid(row=7, column=0, columnspan=4, pady=10)
 
@@ -219,9 +218,9 @@ genre_columns = sorted(['documentary', 'drama', 'mystery', 'romance', 'adventure
                         'horror', 'animation', 'scifi', 'news', 'talkshow', 'realitytv',
                         'gameshow'])
 
-for i, col in enumerate(genre_columns):  # Loop through the genres
+for i, col in enumerate(genre_columns):
     var = tk.IntVar()
-    checkbox = tk.Checkbutton(genre_frame, text=col, variable=var, command=lambda: update_treeview(
+    checkbox = ttk.Checkbutton(genre_frame, text=col, variable=var, command=lambda: update_treeview(
         title_filter_entry.get(), 
         title_match_type_combobox.get(), 
         sort_column_combobox.get(), 
@@ -233,34 +232,28 @@ for i, col in enumerate(genre_columns):  # Loop through the genres
         min_runtime_entry.get(), 
         max_runtime_entry.get()
     ))
-    checkbox.grid(row=i // 10, column=i % 9)  # Arrange in rows of 9
-    genre_vars[col] = var  # Store the variable to check its state later
+    checkbox.grid(row=i // 10, column=i % 9)
+    genre_vars[col] = var
 
-# Create the Treeview, excluding 'tconst'
 treeview = ttk.Treeview(filter_frame, columns=('title', 'year', 'runtimeminutes', 'averagerating', 'numvotes'), show='headings')
 treeview.grid(row=11, column=0, columnspan=4, sticky='nsew')
 
-# Set column headings and widths
 treeview.heading('title', text='Title')
 treeview.heading('year', text='Start Year')
 treeview.heading('runtimeminutes', text='Runtime (min)')
 treeview.heading('averagerating', text='Average Rating')
 treeview.heading('numvotes', text='Number of Votes')
 
-# Initialize the Treeview with all data
 update_treeview()
 
-# Create a frame for the plotting tab
 plot_frame = ttk.Frame(notebook)
 notebook.add(plot_frame, text='Plot')
 
-# Function to plot the graph
 def plot():
     global filtered_df
     ax.clear()
-    x_col = x_dropdown.get().strip(" '")  # Strip unwanted characters
-    y_col = y_dropdown.get().strip(" '")  # Strip unwanted characters
-   
+    x_col = x_dropdown.get().strip(" '")  
+    y_col = y_dropdown.get().strip(" '")  
     
     if x_col in filtered_df.columns and y_col in filtered_df.columns:
         if plot_type.get() == "Scatter":
@@ -274,24 +267,19 @@ def plot():
     else:
         print(f"Error: '{x_col}' or '{y_col}' not found in DataFrame columns.")
 
-
-# Dropdowns for selecting columns to plot
 x_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  
 x_dropdown.grid(row=0, column=0)
 
 y_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  
 y_dropdown.grid(row=0, column=1)
 
-# Dropdown for selecting plot type
-plot_type = tk.StringVar(value='Scatter')  # Default plot type
+plot_type = tk.StringVar(value='Scatter')  
 plot_type_combobox = ttk.Combobox(plot_frame, textvariable=plot_type, values=["Scatter", "Line"])
 plot_type_combobox.grid(row=0, column=2)
 
-# Plot button
-plot_button = tk.Button(plot_frame, text="Plot Graph", command=plot)
+plot_button = ttk.Button(plot_frame, text="Plot Graph", command=plot)
 plot_button.grid(row=0, column=3)
 
-# Matplotlib figure for plotting
 fig, ax = plt.subplots()
 canvas = FigureCanvasTkAgg(fig, master=plot_frame)
 canvas.get_tk_widget().grid(row=1, column=0, columnspan=4)
@@ -300,7 +288,6 @@ toolbar = NavigationToolbar2Tk(canvas, plot_frame, pack_toolbar=False)
 toolbar.update()
 toolbar.grid(row=2, column=0, columnspan=4, sticky='nsew')
 
-# Run the GUI
 root.mainloop()
 
 
