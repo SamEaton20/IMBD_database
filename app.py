@@ -303,10 +303,14 @@ y_label.grid(row=0, column=3, sticky='w', pady=(0, 0))
 plot_lable = ttk.Label(plot_frame, text="Chart Type:")
 plot_lable.grid(row=0, column=4, sticky='w', pady=(0,0))
 
+# Define the specific columns to use in the dropdowns
+plot_columns = ['title', 'year', 'runtimeminutes', 'averagerating', 'numvotes']
+
 # Dropdowns for x and y axis data
-x_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  
+x_dropdown = ttk.Combobox(plot_frame, values=plot_columns)  
 x_dropdown.grid(row=1, column=1, padx=(0, 5), pady=(0, 0)) 
-y_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  
+
+y_dropdown = ttk.Combobox(plot_frame, values=plot_columns)  
 y_dropdown.grid(row=1, column=3, padx=(0, 5), pady=(0, 0)) 
 
 # Dropdown for selecting plot type
@@ -330,11 +334,10 @@ toolbar.grid(row=3, column=0, columnspan=6, sticky='nsew')
 root.mainloop()
 
 
-#Notes
-#add an error message if no 'match type' selected
 
 
 
 
-#add a linear regression line 
-#remove un-needed dropdown selections from x/y
+
+
+
