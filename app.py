@@ -175,6 +175,8 @@ sort_column_combobox.grid(row=0, column=1)
 
 sort_order = tk.StringVar(value='Ascending')
 
+
+# Sort ascending
 ascending_button = ttk.Button(sort_frame, text="Sort Ascending", command=lambda: update_treeview(
     title_filter_entry.get(), 
     title_match_type_combobox.get(), 
@@ -189,6 +191,7 @@ ascending_button = ttk.Button(sort_frame, text="Sort Ascending", command=lambda:
 ))
 ascending_button.grid(row=0, column=2)
 
+# Sort descending
 descending_button = ttk.Button(sort_frame, text="Sort Descending", command=lambda: update_treeview(
     title_filter_entry.get(), 
     title_match_type_combobox.get(), 
@@ -249,53 +252,78 @@ update_treeview()
 plot_frame = ttk.Frame(notebook)
 notebook.add(plot_frame, text='Plot')
 
+
+# Create a function for plotting data in GUI
 def plot():
     global filtered_df
     ax.clear()
-    x_col = x_dropdown.get().strip(" '")  
-    y_col = y_dropdown.get().strip(" '")  
+    x_col = x_dropdown.get().strip(" '")
+    y_col = y_dropdown.get().strip(" '")
     
     if x_col in filtered_df.columns and y_col in filtered_df.columns:
         if plot_type.get() == "Scatter":
             ax.scatter(filtered_df[x_col], filtered_df[y_col])
         else:
             ax.plot(filtered_df[x_col], filtered_df[y_col])
+        
         ax.set_xlabel(x_col)
         ax.set_ylabel(y_col)
         ax.set_title(f"{plot_type.get()} Plot of {y_col} vs {x_col}")
+        
+        # Rotate x-axis labels if x_col is a string
+        if filtered_df[x_col].dtype == 'object':  # Check if x_col is categorical
+            ax.set_xticklabels(filtered_df[x_col], rotation=45, ha='right')
+        # Adjust layout to make sure everything fits well
+        fig.tight_layout()
+
         canvas.draw()
     else:
-        print(f"Error: '{x_col}' or '{y_col}' not found in DataFrame columns.")
+        messagebox.showerror("Error", f"'{x_col}' or '{y_col}' not found in DataFrame columns.")
 
+# Labels for x/y axis and chart type dropdowns
+x_label = ttk.Label(plot_frame, text="X-Axis:")
+x_label.grid(row=0, column=1, sticky='w', pady=(0, 0))  # Moved to row 0
+
+y_label = ttk.Label(plot_frame, text="Y-Axis:")
+y_label.grid(row=0, column=3, sticky='w', pady=(0, 0))  # Moved to row 0
+
+plot_lable = ttk.Label(plot_frame, text="Chart Type:")
+plot_lable.grid(row=0, column=4, sticky='w', pady=(0,0))
+
+# Dropdowns for x and y axis data
 x_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  
-x_dropdown.grid(row=0, column=0)
+x_dropdown.grid(row=1, column=1, padx=(0, 5), pady=(0, 0))  # Moved to row 1
 
 y_dropdown = ttk.Combobox(plot_frame, values=[col.strip(" '") for col in new_imdb_df.columns[1:]])  
-y_dropdown.grid(row=0, column=1)
+y_dropdown.grid(row=1, column=3, padx=(0, 5), pady=(0, 0))  # Moved to row 1
 
+
+# Dropdown for selecting plot type
 plot_type = tk.StringVar(value='Scatter')  
 plot_type_combobox = ttk.Combobox(plot_frame, textvariable=plot_type, values=["Scatter", "Line"])
-plot_type_combobox.grid(row=0, column=2)
+plot_type_combobox.grid(row=1, column=4)
 
 plot_button = ttk.Button(plot_frame, text="Plot Graph", command=plot)
-plot_button.grid(row=0, column=3)
+plot_button.grid(row=0, column=5)
 
-fig, ax = plt.subplots()
+# Move the canvas addition for chart
+fig, ax = plt.subplots(figsize=(14, 8))
 canvas = FigureCanvasTkAgg(fig, master=plot_frame)
-canvas.get_tk_widget().grid(row=1, column=0, columnspan=4)
+canvas.get_tk_widget().grid(row=2, column=0, columnspan=6, sticky='nsew')  # Changed to row 2
 
+# Toolbar for plot navigation and exporting
 toolbar = NavigationToolbar2Tk(canvas, plot_frame, pack_toolbar=False)
 toolbar.update()
-toolbar.grid(row=2, column=0, columnspan=4, sticky='nsew')
+toolbar.grid(row=3, column=0, columnspan=6, sticky='nsew')  # Changed to row 3
 
 root.mainloop()
 
 
 #Notes
 #add an error message if no 'match type' selected
-#change plotting titles to vertical 
+
 #remove line graph or fix it
-#add x and y labels to the dropdowns 
-#change all tk widgets to ttk
+
+
 #add a linear regression line 
 #remove un-needed dropdown selections from x/y
