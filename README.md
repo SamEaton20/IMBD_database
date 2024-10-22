@@ -1,7 +1,7 @@
 # IMDb_database
 # Data Engineering
 # Hunter Becker, Jacob Woolley, Kowsar Abdi, Samantha Eaton
-This is for Project 3, doing the Data engineering side. Combining IMDb databases and comparing movies on ratings and a variety of criteria.
+This is for Project 3, doing the Data engineering side. Combining IMDb databases and comparing movies ratings on a variety of criteria.
 # Getting the dataset
   To obtain the dataset, start by accessing the unzipped TSV files from IMDb at the following URL: [IMDb Datasets](https://datasets.imdbws.com/). Due to their large size, these files cannot be saved directly to GitHub. Once you have accessed the files place them in a folder labeled 'TSV' in the resources folder, use the "IMDB.ipynb" notebook to read in the TSV data.
 
