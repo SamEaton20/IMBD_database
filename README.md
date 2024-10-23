@@ -22,6 +22,6 @@ This is for Project 3, doing the Data engineering side. Combining IMDb databases
 # Ethical reasoning
 This project is being used, purely, for educational purposes. As such, this is within the allowed uses of IMDbs non-commercial datasets. All code is original and sources for additional information that was utilized are listed below. 
 
-# References
+# Resources
 - ChatGPT
 - Tkinter: https://docs.python.org/3/library/tk.html
